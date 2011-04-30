@@ -17,6 +17,7 @@
     <script type="text/javascript" src="js/jquery-ui-1.8.9.custom.min.js"></script>
     <script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
     <script type="text/javascript">
+        
         $(document).ready(function () {
             $("#imgShowUsers").click(function () {
                 $.get("fragment/user/main.html", function (fragment) {
@@ -28,37 +29,39 @@
         });
 
         function f_mainLoaded() {
+            f_handleImgAddUser();
+            f_showList();
+        }
 
-            qwertyYTREWQ();
-
+        function f_handleImgAddUser() {
             $("#imgAddUser").click(function () {
                 f_addUser();
             });
         }
 
-        function qwertyYTREWQ() {
+        function f_showList() {
             $("#tblUsers tbody").empty();
             $.ajax({
                 url:"rest/users",
                 type: "GET",
                 dataType: "json",
                 success: function (backData, status, xhr) {
-                    $.ajax({
-                        url: '/web/template/user/userList.tpl',
-                        data: '',
-                        dataType: 'text',
-                        success: function (templateText) {
-                            $.tmpl(templateText, backData.response.userDTO).appendTo("#tblUsers");
-                        }
-                    });
-//                    $.get('/web/template/user/userList.tpl', function(backDataTemplate) {
-//                        $.template("tblUsersTemplate", backDataTemplate);
-//                        $.tmpl("<tr><td>${firstName}</td><td>${lastName}</td></tr>", backData.response.userDTO).appendTo("#tblUsers");
-//                    });
+                    f_loadUserListTpl(backData.response.userDTO);
                 },
                 error: function (xhr, status, ex) {
                 },
                 complete: function (xhr, status) {
+                }
+            });
+        }
+
+        function f_loadUserListTpl(dataList) {
+            $.ajax({
+                url: '/web/template/user/userList.tpl',
+                data: '',
+                dataType: 'text',
+                success: function (templateText) {
+                    $.tmpl(templateText, dataList).appendTo("#tblUsers");
                 }
             });
         }
