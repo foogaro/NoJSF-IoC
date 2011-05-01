@@ -25,6 +25,7 @@
         <resteasy>2.1.0.GA</resteasy>
         <log4j>1.2.16</log4j>
         <slf4j>1.6.1</slf4j>
+        <logback>0.9.28</logback>
     </properties>
 
     <dependencyManagement>
@@ -146,6 +147,26 @@
                 <artifactId>slf4j-log4j12</artifactId>
                 <version>${slf4j}</version>
             </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>${slf4j}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>log4j-over-slf4j</artifactId>
+                <version>${slf4j}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -177,9 +198,14 @@
             <url>https://repository.jboss.org/nexus/content/groups/public-jboss/</url>
         </repository>
         <repository>
-            <id>maven</id>
+            <id>repo1 maven2</id>
             <name>http://repo1.maven.org/maven2/</name>
             <url>http://repo1.maven.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>repo2 maven2</id>
+            <name>http://repo2.maven.org/maven2/</name>
+            <url>http://repo2.maven.org/maven2/</url>
         </repository>
         <repository>
             <id>ibiblio.org</id>
@@ -196,12 +222,6 @@
             <name>Java.net Repository for Maven</name>
             <url>http://download.java.net/maven/2/</url>
         </repository>
-        <repository>
-            <id>mvnrepository.com</id>
-            <name>mvnrepository.com</name>
-            <url>http://mvnrepository.com/artifact/</url>
-        </repository>
-
     </repositories>
 
 </project>

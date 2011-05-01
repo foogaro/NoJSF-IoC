@@ -23,7 +23,7 @@ import java.util.List;
 @Path("/users")
 public class UserRestler extends ACRUDRestler<UserDTO> implements IUserRestler {
 
-    private Logger logger = LoggerFactory.getLogger(UserRestler.class);
+    private static final Logger logger = LoggerFactory.getLogger(UserRestler.class);
     
     @Autowired
     private IUserBusiness userBusiness;
@@ -43,20 +43,6 @@ public class UserRestler extends ACRUDRestler<UserDTO> implements IUserRestler {
             res = Response.serverError().build();
             logger.debug("BusinessException: " + e);
         }
-
-//        ResponseWrapper responseWrapper = new ResponseWrapper();
-//        List<UserDTO> userDTOList = new ArrayList<UserDTO>();
-//        UserDTO userDTO;
-//
-//        userDTO = new UserDTO();userDTO.setFirstName("Luigi");userDTO.setFirstName("Fugaro");userDTO.setIdentifier("LUFOO");userDTOList.add(userDTO);
-//        userDTO = new UserDTO();userDTO.setFirstName("Gigi");userDTO.setFirstName("Foogaro");userDTO.setIdentifier("GIFOO");userDTOList.add(userDTO);
-//        userDTO = new UserDTO();userDTO.setFirstName("Gigio");userDTO.setFirstName("Figaro");userDTO.setIdentifier("GIFI");userDTOList.add(userDTO);
-//        userDTO = new UserDTO();userDTO.setFirstName("G");userDTO.setFirstName("F");userDTO.setIdentifier("GF");userDTOList.add(userDTO);
-//
-//        responseWrapper.setDataWrapper(userDTOList);
-//
-////            res = Response.ok(userDTOList.toArray(new UserDTO[0])).build();
-//        res = Response.ok(responseWrapper).build();
 
         return res;
     }

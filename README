@@ -1,4 +1,5 @@
-NoJSF - It is a basic project which aims to be the base for project that do NOT want to use any obtrusive frameworks. This variant is based on the IoC pattern provided by Spring.
+NoJSF - It is a basic project which aims to be the base for projects that do NOT want to use any obtrusive frontend frameworks.
+This variant is based on the IoC pattern provided by Spring.
 The project uses RESTeasy for the REST layer and Spring 3 to provide injection between layers.
 
 So, if all you want is just html, js, css and a restful backend... you found what you were looking for.
@@ -8,4 +9,4 @@ This is how it works:
  - the REST controller (aka restler) intercepts the request and delegates it to the business layer;
  - the effective business component does the hard work and, if necessary, asks the persistence layer to query or persist entities/documents;
  - the persistence component goes directly to the database through the appropriate and provided driver.
-The chain terminates with a HTTP code, hopefully a 200 or 201! ;)
+The chain terminates with a HTTP code, hopefully a 200 or 201 code! ;)

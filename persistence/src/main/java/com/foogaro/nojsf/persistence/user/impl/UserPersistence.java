@@ -17,10 +17,10 @@ public class UserPersistence extends ACRUDPersistence<UserDTO> implements IUserP
         List<UserDTO> userDTOList = new ArrayList<UserDTO>();
         UserDTO userDTO;
 
-        userDTO = new UserDTO();userDTO.setFirstName("1-Luigi");userDTO.setFirstName("Fugaro");userDTO.setIdentifier("LUFOO");userDTOList.add(userDTO);
-        userDTO = new UserDTO();userDTO.setFirstName("2-Gigi");userDTO.setFirstName("Foogaro");userDTO.setIdentifier("GIFOO");userDTOList.add(userDTO);
-        userDTO = new UserDTO();userDTO.setFirstName("3-Gigio");userDTO.setFirstName("Figaro");userDTO.setIdentifier("GIFI");userDTOList.add(userDTO);
-        userDTO = new UserDTO();userDTO.setFirstName("4-G");userDTO.setFirstName("F");userDTO.setIdentifier("GF");userDTOList.add(userDTO);
+        userDTO = new UserDTO();userDTO.setFirstName("1-Luigi");userDTO.setLastName("Fugaro");userDTOList.add(userDTO);
+        userDTO = new UserDTO();userDTO.setFirstName("2-Gigi");userDTO.setLastName("Foogaro");userDTOList.add(userDTO);
+        userDTO = new UserDTO();userDTO.setFirstName("3-Gigio");userDTO.setLastName("Figaro");userDTOList.add(userDTO);
+        userDTO = new UserDTO();userDTO.setFirstName("4-G");userDTO.setLastName("F");userDTOList.add(userDTO);
 
         return userDTOList;
     }
